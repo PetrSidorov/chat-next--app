@@ -1,0 +1,130 @@
+/* =================
+Reset
+================= */
+input,
+button {
+  all: unset;
+}
+/* =================
+Base
+================= */
+// #AFD2E9
+// #26547C
+$columbia-blue: #afd2e9;
+$yin-mn-blue: #26547c;
+$navy: #1f2937;
+$pink: #da6aec;
+$red: #f43f5e;
+$blue: #2f74dc;
+$green: #22cd90;
+
+body {
+  margin: 0;
+  font-family: "Ubuntu", sans-serif !important;
+  font-size: 1.125rem;
+  font-weight: 300;
+  background-color: black;
+  color: white;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =================
+Typography
+================= */
+h1,
+h2,
+h3 {
+  font-family: "Lora", serif;
+  font-weight: 400;
+  // color: #143774;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+a {
+  // color: #1792d2;
+}
+
+a:hover,
+a:focus {
+  // color: #143774;
+}
+
+/* =================
+Layout
+================= */
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.container-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 0.5em 1em;
+  background-color: $yin-mn-blue;
+  border-radius: 22px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.home {
+  padding: 1em;
+}
+
+.avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.3rem solid white;
+}
+
+.avatar-letters {
+  background-color: #f43f5e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+.sidebar {
+  width: 35%;
+}
+
+.dialog {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
