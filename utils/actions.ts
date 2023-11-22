@@ -1,6 +1,7 @@
 "use server";
 import { revalidatePath } from "next/cache";
 import db from "./db";
+import dbEdge from "./dbEdge";
 import { User } from "@prisma/client";
 import crypto from "crypto";
 import { cookies } from "next/headers";
@@ -67,14 +68,13 @@ export const loginUser = async (formData: FormData) => {
   // revalidatePath("/chat");
 };
 
-export const validateSession = async () => {
-  const token = cookies().get("amazing-chat");
+export const validateSession = async (token: string) => {
   if (!token) {
     return false;
   } else if (token) {
-    const cookie = await db.userSession.findUnique({
+    const cookie = await dbEdge.userSession.findUnique({
       where: {
-        sessionToken: token.value,
+        sessionToken: token,
       },
     });
     if (!cookie) {
