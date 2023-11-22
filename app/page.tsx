@@ -1,62 +1,31 @@
-import Image from "next/image";
+import "@/scss/login-signup.scss";
+import { newUser } from "@/utils/actions";
+import { loginUser } from "@/utils/actions";
+import { cookies } from "next/headers";
 
-export default function Home() {
+import { validateSession } from "@/utils/actions";
+
+export default function LogIn() {
   return (
-    <div className="container container-flex home">
-      <aside className="sidebar">
-        <div className="search">
-          <input type="text" className="search__input" placeholder="Search" />
-        </div>
-        <div className="chat-list">
-          {/* messages goes here */}
-          <div className="message">
-            <div className="avatar avatar-letters">
-              {/* first letter of name + firsdt letter of surname */}
-              NB
-              {/* <img src="" alt="avatar" /> */}
-            </div>
-            <div>
-              <div className="message__info">
-                <span className="message__name">Name</span>
-                <span className="message__date">08:01</span>
-              </div>
-              <span className="message__excerpt">Text goes here</span>
-            </div>
-          </div>
-          {/* messages goes here */}
-        </div>
-        <div className="sidebar-footer">
-          <button>Friendlist</button>
-          <button>Messagelist</button>
-        </div>
-      </aside>
-      <main className="dialog">
-        <div className="dialog__settings"></div>
-        <div className="dialog__body">
-          {/* messages goes here */}
-          <div className="message">
-            <div>
-              <img src="" alt="avatar" />
-            </div>
-            <div>
-              <div className="message__info">
-                <span className="message__name">Name</span>
-                <span className="message__date">08:01</span>
-              </div>
-              <span className="message__excerpt">Text goes here</span>
-            </div>
-          </div>
-          {/* messages goes here */}
-        </div>
-        <div className="message-composer">
-          <input
-            type="text"
-            className="message-composer__input"
-            placeholder="Type a message..."
-          />
-          <button className="message-composer__send-btn">Send</button>
-        </div>
-      </main>
-    </div>
+    <>
+      <div className="container">
+        <h2>Signup form</h2>
+        <form className="register-form" action={newUser}>
+          <input name="name" placeholder="Type your name" type="text" />
+          <input name="username" placeholder="Type your username" type="text" />
+          <input name="email" placeholder="Type your email" type="email" />
+          <input name="password" placeholder="password" type="password" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div className="container">
+        <h2>Login form</h2>
+        <form className="register-form" action={loginUser}>
+          <input name="username" placeholder="Type your username" type="text" />
+          <input name="password" placeholder="password" type="password" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </>
   );
 }

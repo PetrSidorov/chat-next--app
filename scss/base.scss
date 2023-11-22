@@ -1,15 +1,6 @@
 /* =================
-Reset
+Variables
 ================= */
-input,
-button {
-  all: unset;
-}
-/* =================
-Base
-================= */
-// #AFD2E9
-// #26547C
 $columbia-blue: #afd2e9;
 $yin-mn-blue: #26547c;
 $navy: #1f2937;
@@ -17,6 +8,35 @@ $pink: #da6aec;
 $red: #f43f5e;
 $blue: #2f74dc;
 $green: #22cd90;
+
+/* =================
+Reset
+================= */
+input:focus,
+input,
+button {
+  all: unset;
+  font: inherit;
+}
+
+input {
+  background-color: white;
+  border: 1px solid $columbia-blue;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 50px white inset;
+  -webkit-text-fill-color: #8e2323;
+}
+
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px white inset; /*your box-shadow*/
+  -webkit-text-fill-color: #a11515;
+}
+
+/* =================
+Base
+================= */
 
 body {
   margin: 0;
@@ -80,51 +100,4 @@ button {
 
 button:hover {
   cursor: pointer;
-}
-
-.message {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1em;
-
-  &__info {
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
-.home {
-  padding: 1em;
-}
-
-.avatar {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 0.3rem solid white;
-}
-
-.avatar-letters {
-  background-color: #f43f5e;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
-}
-
-.sidebar {
-  width: 35%;
-}
-
-.dialog {
-  width: 75%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
