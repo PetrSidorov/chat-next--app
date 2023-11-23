@@ -1,12 +1,8 @@
 "use server";
-import { revalidatePath } from "next/cache";
 import db from "./db";
-import dbEdge from "./dbEdge";
 import { User } from "@prisma/client";
 import crypto from "crypto";
 import { cookies } from "next/headers";
-import { UserSession } from "@prisma/client";
-import { redirect } from "next/navigation";
 
 // TODO: throwing error only for now, i'll adjust that later
 
@@ -18,10 +14,6 @@ const newSession = async (user: User, sessionToken: string) => {
       expires: new Date(new Date().getTime() + 24 * 60 * 60 * 1000),
     },
   });
-
-  // setCookie("amazing-chat", sessionToken, true);
-  // cookies().set("amazing-chat", sessionToken, { secure: true });
-  // console.log("sanity", cookies().get("amazing-chat"));
 };
 
 export const newUser = async (formData: FormData) => {
@@ -67,28 +59,6 @@ export const loginUser = async (formData: FormData) => {
 
   // revalidatePath("/chat");
 };
-
-export const validateSession = async (token: string) => {
-  if (!token) {
-    return false;
-  } else if (token) {
-    const cookie = await dbEdge.userSession.findUnique({
-      where: {
-        sessionToken: token,
-      },
-    });
-    if (!cookie) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-};
-
-// export const validateSession = async () => {
-//   const cookieStore = cookies();
-//   return cookieStore.getAll().map((cookie) => console.table(cookie));
-// };
 
 export const setCookie = async (
   name: string,
